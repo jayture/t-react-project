@@ -5,15 +5,21 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  color: #243e63;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-h1 { font-size: 45px;
+p {
+  color:#243e63
+}
 
+h1 { font-size: 45px;
+}
+
+i {
+  text-decoration: none;
 }
 
 img {
@@ -26,6 +32,7 @@ li {
 
 a {
   text-decoration: none;
+  color:#28313d
 }
 
 button {
@@ -68,6 +75,10 @@ a:hover {
 
 .btn:hover {
   background-color: #4a14b6;
+}
+
+.btn:active {
+  transform: translateY(2px);
 }
 
 section {
@@ -183,45 +194,51 @@ nav {
   text-align: center;
   font-size: 40px;
   display: none;
+  color: #242424;
 }
 
 .menu__backdrop {
   position: absolute;
-  background-color: #242424;
-  top: 0;
+  background-color: white;
+  top: 100px;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 50px;
   justify-content: center;
   align-items: center;
   display: flex;
   z-index: 100;
   visibility: hidden;
   opacity: 0;
+  transform: translateY(500px);
   transition: all 300ms ease;
+  width: 100%;
+  border: 1px solid #eeebeb;
+  border-radius: 10px;
 }
 
 .menu--open .menu__backdrop {
   display: flex;
   visibility: visible;
   opacity: 1;
+  transform: translateY(0);
 }
 
 .menu--open {
   max-height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 .menu__links {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: #242424;
 }
 
-.menu__link,
- .menu__link--primary {
-  color: white;
+.menu__link {
+  color: #242424;
 }
 
 .menu__list {
@@ -231,9 +248,9 @@ nav {
 .btn__menu--close {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 30px;
   padding: 8px;
-  color: white;
+  color: #242424;
 }
 
 
@@ -664,6 +681,11 @@ header .row {
   box-shadow: 2px 4px 7px black;
 }
 
+.plan__btn:active {
+  transform: translateY(6px);
+  transform: scale(1.01);
+}
+
 .plan:nth-child(1) .plan__btn {
     background: linear-gradient(115deg, rgb(56, 178, 172)0% , rgb(129, 230, 217) 100%);
 }
@@ -821,10 +843,12 @@ header .row {
   border-radius: 50px;
   padding: 16px;
   transition: all 300ms ease;
+  color:#222121;
 }
 
 .testi__btn:hover {
   background: rgb(172, 170, 170);
+  color:#243e63;
 }
 
 .divider {
@@ -925,11 +949,17 @@ footer .row {
   padding: 10px;
   border-radius: 300px;
   gap: 2px;
+  text-decoration: none;
 }
 
 .footer__social--link {
   padding: 10px;
   cursor: not-allowed;
+  color: black;
+}
+
+.footer__social--link:hover {
+  text-decoration: none;
 }
 
 @media (max-width: 1200px) {
@@ -1038,7 +1068,11 @@ footer .row {
 
   .header__email {
     width: 45%;
-    margin-left: 224px;
+    margin: 0 auto;
+  }
+
+  .header__email--input::placeholder {
+    width: 34%;
   }
 
   .header__customers {
@@ -1052,6 +1086,12 @@ footer .row {
   .header__img--wrapper {
     margin-top: 40px;
     width: 200%;
+    justify-content: center;
+  }
+
+  #services .service{
+    width: (100% / 2);
+    flex-wrap: wrap;
     justify-content: center;
   }
 
@@ -1122,7 +1162,6 @@ footer .row {
   }
 
   .row {
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -1163,10 +1202,13 @@ footer .row {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   .values__description {
-    font-size: 18px;
+    font-size:18px;
+    width: 100%;
+    text-align: center;
   }
 
   .values__img {
@@ -1176,6 +1218,39 @@ footer .row {
 
   #values .btn {
     max-width: 100%;
+  }
+
+  #testimonials .row{
+    flex-direction: column;
+  }
+
+  .testi__img--wrapper{
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .testi__description {
+    width: 100%;
+    text-align: center;
+  }
+
+  footer {
+    flex-wrap: wrap;
+  }
+
+  .link {
+    width: calc(100% / 3);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .links {
+    justify-content: center;
+  }
+
+  .footer__info {
+    flex-direction: column;
+    gap: 15px;
   }
 
 }
@@ -1198,12 +1273,35 @@ footer .row {
   }
 
   .service {
-    text-align: start;
+    text-align: center;
+    width: 100%;
+    max-width:90%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .service__title {
     text-decoration: underline;
     font-size: 23px;
+  }
+
+  .service__img--wrapper {
+    justify-content: center;
+    padding:0;
+    width:15%;
+  }
+
+  .service__img {
+    padding: 10px;
+    width:100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .service__description--para {
+    max-width: 300px;
   }
 
   #values .section__title {
@@ -1235,21 +1333,51 @@ footer .row {
     margin-top: 10px;
   }
 
+  .value__para {
+    text-align: center;
+  }
+
   #testimonials {
     font-size: 16px;
   }
 
+  #testimonials .section__para {
+    text-align: center;
+  }
+
+  .testi__rating,
+  .testi__para,
+  .testi__title {
+    text-align: center;
+  }
+
   .testi__bottom {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .testi__profile {
+    justify-content: center;
   }
 
   .testi__profile--img {
-    width: 50%;
+    width: 25%;
+    display: flex;
   }
 
-  .testi__buttons .testi__btn{
+  .testi__buttons{
+    justify-content: center;
+    margin-top: 20px;
     width: 100%;
+    align-items: center;
   }
+
+  .testi__btn {
+    width:25%;
+  }
+
+
 
   footer {
     justify-content: center;
@@ -1273,6 +1401,7 @@ footer .row {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    gap:10px;
   }
 
   .footer__logo {
